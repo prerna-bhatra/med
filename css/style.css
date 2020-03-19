@@ -1,3 +1,56 @@
 .nav ul li input 
 {	margin-top: 20px;
 }
+
+
+#txtHint
+{
+	position:absolute;
+	left: 190px;
+	top: 30px;
+	width:200px;
+	background: white;
+}
+#txtHint li
+{
+	list-style: none;
+	padding: 10px 10px 10px 0px;
+	border-bottom: 1px solid black;
+	
+}
+#cart button
+{
+	margin-right: 10px;
+	margin-left: 10px;
+}
+#txtHint li a
+{
+	text-decoration: none;
+	color: black;
+	position: absolute;
+	left: 150px;
+	padding: 20px 10px 20px 10px;
+}
+#txtHint li #medname,#medprice
+{
+	display: inline-block;
+}
+#txtHint li  #medprice
+{
+	color:red;
+	float:right;
+	margin-right: 10px;
+	font-weight: bold;
+}
+#txtHint li:hover
+{
+	background: gray;
+}
+.main-content
+{
+	position: relative;
+
+}
+
+
+

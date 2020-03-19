@@ -10,10 +10,17 @@
    $obj=new User();
    $conn=$obj->search();
    $result=mysqli_query($conn,$query);
-   while ($output=mysqli_fetch_assoc($result)) {
-      echo '<a>'.$output['name'].'</a>'."<br>";
-      
-    } 
-} 
+   ?>
+   <ul>
+      <?php
+         while ($output=mysqli_fetch_assoc($result)) {
+            ?>
+            <li><p id="medname"><?php echo $output['name'];?></p><p id="medprice"><?php echo 'Rs.'.$output['price'] ; ?></p><a href="showmed.php?id=<?php echo $output['id']; ?>" ><span class="glyphicon glyphicon-shopping-cart"></span> </a></li>
+          <?php
+         }
 
+      ?>
+   </ul>
+   <?php
+} 
 ?>

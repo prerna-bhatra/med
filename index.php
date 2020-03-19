@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>Healthcrew</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -71,8 +72,10 @@
     </div>
   </div>
 </nav>
-<div id="txtHint">
-    
+<div class="main-contetnt">
+    <div id="txtHint">
+        
+    </div>
 </div>
 </body>
 </html>
