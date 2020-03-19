@@ -54,3 +54,12 @@
 
 
 
+#medname,#medprice,p
+{
+	display: inline-block;
+}
+#medprice 
+{
+	color:red;
+	font-weight: bold;
+}
