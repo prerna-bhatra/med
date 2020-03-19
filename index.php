@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,6 +27,62 @@
       </script>
 </head>
 <body>
+  <?php
+      
+   include_once('dbfunction.php');  
+  //echo "asdf";
+  if(isset($_POST['signup']))
+  {
+        $funobj=new User();
+    //echo "string";
+    $username = $_POST['name'];  
+        $emailid = $_POST['email'];  
+        $password = $_POST['password']; 
+        $address=$_POST['add']; 
+        $mob=$_POST['pn'];
+        $confirmPassword = $_POST['cpassword']; 
+        if($password==$confirmPassword)
+        {
+            $register=$funobj->reg_user($username, $emailid,$address, $password,$mob);
+                     if($register){  
+                     echo "<script>alert('Registration Successful')</script>";  
+                    }else{  
+                    echo "<script>alert('Registration Not Successful')</script>";  
+                    }  
+        }
+         else 
+        {  
+            //echo "string";
+           echo "<script>alert('Password Not Match')</script>";  
+          
+        }   
+
+
+        } 
+       
+             
+  if (isset($_POST['login_account'])) {
+        # code...
+        $funobj=new User();
+        $uname=$_POST['email'];
+        $password=$_POST['password'];
+        $login=$funobj->check_login($uname, $password);
+        if($login)
+        {
+                session_start();
+                $_SESSION['sessionvar'] = 1;
+                //$_SESSION['uid'] = $user_data['id'];
+               //echo $_SESSION['sessionvar'];
+         // echo "<script>alert('Successful loggedin');window.location.href='index.php';</script>"; 
+        }
+        else
+        {
+          // echo $_SESSION['login'];
+           echo "<script>alert('log in failed');window.location.href='index.php';</script>"; 
+        }
+        
+    }
+  ?>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -54,21 +109,22 @@
         <li><a href="#">Page 3</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <?php
-        if (!isset($_SESSION['login']))
+      
+      <?php
+        if(isset($_SESSION['sessionvar']))
         {
+          //echo $_SESSION['sessionvar'];
+         ?>
+         <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li> 
+         <?php
+          }
+          else 
+          {
 
-        ?>
-        <li><a href="signup_login.php"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
-        <?php
-        }
-        elseif (isset($_SESSION['login'])) 
-        {
-          ?>
-        <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>    
-        <?php
-        }          
-        ?>
+         ?>   <li><a href="signup_login.php"><span class="glyphicon glyphicon-log-in"></span>Login</a></li> 
+         <?php
+          }
+         ?>
       </ul>
     </div>
   </div>
@@ -81,57 +137,8 @@
 </body>
 </html>
 <?php
-	include_once('dbfunction.php');  
-	//echo "asdf";
-	if(isset($_POST['signup']))
-	{
-        $funobj=new User();
-		//echo "string";
-		$username = $_POST['name'];  
-        $emailid = $_POST['email'];  
-        $password = $_POST['password']; 
-        $address=$_POST['add']; 
-        $mob=$_POST['pn'];
-        $confirmPassword = $_POST['cpassword'];	
-        if($password==$confirmPassword)
-        {
-            $register=$funobj->reg_user($username, $emailid,$address, $password,$mob);
-                     if($register){  
-                     echo "<script>alert('Registration Successful')</script>";  
-                    }else{  
-                    echo "<script>alert('Registration Not Successful')</script>";  
-                    }  
-        }
-         else 
-        {  
-            //echo "string";
-           echo "<script>alert('Password Not Match')</script>";  
-          
-        }   
-
-
-        } 
-       
-        	
-        
-	if (isset($_POST['login_account'])) {
-        # code...
-        $funobj=new User();
-        $uname=$_POST['email'];
-        $password=$_POST['password'];
-        $login=$funobj->check_login($uname, $password);
-        if($login)
-        {
-            echo $_SESSION['login'];
-         // echo "<script>alert('Successful loggedin');window.location.href='index.php';</script>"; 
-        }
-        else
-        {
-           echo $_SESSION['login'];
-           // echo "<script>alert('log in failed');window.location.href='index.php';</script>"; 
-        }
-        
-    }
+	
+  
 
 ?>
 

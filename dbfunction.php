@@ -52,12 +52,11 @@ include "config.php";
 
 	        if ($count_row == 1) {
 	            // this login var will use for the session thing
-				$_SESSION['login'] = 1;
-	            $_SESSION['uid'] = $user_data['id'];
+	          
 	            return true;
 	        }
 	        else{
-	        	$_SESSION['login'] = 0;
+	        	
 			    return false;
 			}
     	}
