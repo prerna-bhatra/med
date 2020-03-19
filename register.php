@@ -11,18 +11,18 @@ include_once 'dbfunction.php';  $user = new User(); // Checking for user logged 
  $addess=$_POST['address'];
  $register = $user->reg_user($name,$mob,$password,$email,$addess);
  // Registration Success
- echo 'Registration successful <a href="login.php">Click here</a> to login';
- } 
+ if($register)
+ {
+echo 'Registration successful <a href="login.php">Click here</a> to login';
+ }
  else {
  // Registration Failed
  echo 'Registration failed. Email or Username already exits please try again';
  }
-
+ } 
  ?>
-
 <style>
 /*#container{width:400px; margin: 0 auto;}*/</style>
- 
 <script type="text/javascript" language="javascript">
  function submitreg() {
  var form = document.reg;
@@ -55,7 +55,7 @@ include_once 'dbfunction.php';  $user = new User(); // Checking for user logged 
 </tr>
 <tr>
 <th>Email:</th>
-<td><input type="text" name="email" required="" /></td>
+<td><input type="email" name="email" required="" /></td>
 </tr>
 <tr>
 <th>Address</th>
@@ -63,7 +63,7 @@ include_once 'dbfunction.php';  $user = new User(); // Checking for user logged 
 </tr>
 <tr>
 <th>Mob:</th>
-<td><input type="text" name="mob" required="" /></td>
+<td><input type="number" name="mob" required="" /></td>
 </tr>
 <tr>
 <th>Password:</th>

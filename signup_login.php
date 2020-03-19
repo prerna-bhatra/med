@@ -21,6 +21,7 @@ include("database.php");
 <div id="myDIV1">
 	<h4>Alredy regitsered</h4>
 <button value="login" id="login" onclick="Login()">Login</button>
+<a href="index.php" class="btn btn-primary">Cancel</a>
 <form method="POST" action="index.php">
 	<div class="row">
 		<div class="col-md-6">
@@ -46,7 +47,8 @@ include("database.php");
 <div id="myDIV2">
 	<h4>Don't have an account</h4>
 	<button value="Signup" id="signup" onclick="SignUp()">Sign Up</button>
-	<form method="POST" action="">
+	<a href="index.php" class="btn btn-primary">Cancel</a>
+	<form method="POST" action="index.php">
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
@@ -54,7 +56,7 @@ include("database.php");
 					<input type="email" name="email" class="form-control" required>
 					<label>Password</label>
 					<input type="password" name="password" class="form-control" required>
-					<input type="submit" name="login" class="btn btn-primary">
+					<input type="submit" name="login_account" class="btn btn-primary">
 				</div>
 			</div>
 	</form>
@@ -78,8 +80,6 @@ include("database.php");
 	}
 
 </script>
-
-?>
 </body>
 </html>
 

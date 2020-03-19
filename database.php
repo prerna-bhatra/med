@@ -4,6 +4,7 @@
  	//$conn=NULL;
  	function  __construct()
  	{
+ 		session_start();
  		require_once('config.php');
  		$conn=mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD);
  		if(!$conn)
@@ -16,6 +17,7 @@
  		mysqli_close();
  	}
  }
+
 
 //https://www.w3schools.com/php/func_mysqli_connect.asp
 ?>
