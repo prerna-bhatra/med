@@ -29,11 +29,12 @@
 <body>
   <?php
       
-   include_once('dbfunction.php');  
+   include_once('dbfunction.php'); 
+   $funobj=new User(); 
   //echo "asdf";
   if(isset($_POST['signup']))
   {
-        $funobj=new User();
+        
     //echo "string";
     $username = $_POST['name'];  
         $emailid = $_POST['email'];  
@@ -63,7 +64,7 @@
              
   if (isset($_POST['login_account'])) {
         # code...
-        $funobj=new User();
+       // $funobj=new User();
         $uname=$_POST['email'];
         $password=$_POST['password'];
         $login=$funobj->check_login($uname, $password);
@@ -115,13 +116,12 @@
         {
           //echo $_SESSION['sessionvar'];
          ?>
-         <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li> 
+         <li><a href="index.php?logout=1"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li> 
          <?php
           }
           else 
           {
-
-         ?>   <li><a href="signup_login.php"><span class="glyphicon glyphicon-log-in"></span>Login</a></li> 
+         ?><li><a href="signup_login.php"><span class="glyphicon glyphicon-log-in"></span>Login</a></li> 
          <?php
           }
          ?>
@@ -137,9 +137,10 @@
 </body>
 </html>
 <?php
-	
-  
-
+	if (isset($_GET['logout']))
+  {
+    $funobj->user_logout();  
+  }
 ?>
 
 

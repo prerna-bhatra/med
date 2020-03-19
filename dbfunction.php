@@ -61,14 +61,7 @@ include "config.php";
 			}
     	}
 
-    	/*** for showing the username or fullname ***/
-    	/*public function get_fullname($uid){
-    		$sql3="SELECT fullname FROM users WHERE uid = $uid";
-	        $result = mysqli_query($this->db,$sql3);
-	        $user_data = mysqli_fetch_array($result);
-	        echo $user_data['fullname'];
-    	}
-*/
+    	
     	/*** starting the session ***/
 	    public function get_session(){
 	        return $_SESSION['uid'] ;
@@ -82,8 +75,7 @@ include "config.php";
 	  {
 	  	return $this->db;
 	  	 }
-
-	}
+}
 	?>
 
 
