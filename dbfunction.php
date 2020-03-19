@@ -13,9 +13,7 @@ include "config.php";
 
 			}
 		}
-
-		
-		/*** for registration process ***/
+				/*** for registration process ***/
 		public function reg_user($username, $emailid,$address, $password,$mob){
 
 			//echo "string";
@@ -81,6 +79,10 @@ include "config.php";
 	        $_SESSION['login'] = FALSE;
 	        session_destroy();
 	    }
+	  public function search()
+	  {
+	  	return $this->db;
+	  	 }
 
 	}
 	?>

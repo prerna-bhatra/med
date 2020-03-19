@@ -6,6 +6,25 @@
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <script>
+
+         function showHint(str) {
+            if (str.length == 0) {
+               document.getElementById("txtHint").innerHTML = "";
+               return;
+            }else {
+               var xmlhttp = new XMLHttpRequest();
+                    
+               xmlhttp.onreadystatechange = function() {
+                  if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                     document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+                  }
+               }
+               xmlhttp.open("GET", "fetch.php?q=" + str, true);
+               xmlhttp.send();
+            }
+         }
+      </script>
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -21,7 +40,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
-         <li><input type="search" class="form-control" name="search" placeholder="search medicine" onkeyup=""></li>
+         <li><input type="text" class="form-control" name="search" placeholder="search medicine" onkeyup = "showHint(this.value)"></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -52,14 +71,13 @@
     </div>
   </div>
 </nav>
+<div id="txtHint">
+    
+</div>
 </body>
 </html>
-
 <?php
-    
-
 	include_once('dbfunction.php');  
-	
 	//echo "asdf";
 	if(isset($_POST['signup']))
 	{
