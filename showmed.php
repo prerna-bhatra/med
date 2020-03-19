@@ -10,19 +10,20 @@
 </head>
 <body>
 <div class="container">
-<h1>Add to cart</h1>
 <?php
-	include 'database.php';
+   include 'database.php';
    include 'dbfunction.php';
    $obj=new User();
    $conn=$obj->search();
+   if(isset($_GET['id']))
+   {
    $id=$_GET['id'];
 	$query="SELECT * from medicines where id=$id";
 	$result=mysqli_query($conn,$query);
 	$output=mysqli_fetch_assoc($result);
-	echo $num=1;
+	 $num=1;
 ?>
-<div class="container">
+<h1>Add to cart</h1>
 <p id="medname"><?php echo $output['name']; ?></p>
 <p id="medname"><?php echo "Rs.".$output['price']; ?></p>
 
@@ -30,10 +31,19 @@
 		<button class="btn" onclick="dec()"><b>-</b></button>
 		<p id="num"></p>
 		<button class="btn" onclick="inc()"><b>+</b></button>
+		<a href="showmed.php?oid=<?php echo $id; ?>" class="btn btn-info">Add to cart</a>
 	</div>
 
-
-
+	<div>
+		<?php
+			if($output['stock']==0)
+			{
+				?>
+					<p>Out of Stock</p>
+				<?php
+			}
+		?>
+	</div>
 <script type="text/javascript">
 	var num=1;
 	function dec()
@@ -46,12 +56,27 @@
 	}
 	function inc()
 	{
-		num=num+1;
+				
+			num=num+1;
 			document.getElementById('num').innerHTML=num;
 	}
 	document.getElementById('num').innerHTML=num;
 </script>
 </div>
+<?php  
+}
+?>
+<?php
+if(isset($_GET['oid']))
+{
+	$id=$_GET['oid'];
+	$query="SELECT * from medicines where id=$id";
+	$result=mysqli_query($conn,$query);
+	$output=mysqli_fetch_assoc($result);
+	//$uid=$obj->get_session();
+	$query2="INSERT into cart ";
+}
+?>
 </body>
 </html>
 

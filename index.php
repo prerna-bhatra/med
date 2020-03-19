@@ -55,18 +55,19 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <?php
-        if(!isset($_SESSION['login']))
+        if (!isset($_SESSION['login']))
         {
+
         ?>
         <li><a href="signup_login.php"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
         <?php
-         }
-             if(isset($_SESSION['login']))
-            {
-                ?>
-                <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>
-                <?php
-            }
+        }
+        elseif (isset($_SESSION['login'])) 
+        {
+          ?>
+        <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>    
+        <?php
+        }          
         ?>
       </ul>
     </div>
@@ -121,13 +122,13 @@
         $login=$funobj->check_login($uname, $password);
         if($login)
         {
-            //echo $_SESSION['login'];
-          echo "<script>alert('Successful loggedin');window.location.href='index.php';</script>"; 
+            echo $_SESSION['login'];
+         // echo "<script>alert('Successful loggedin');window.location.href='index.php';</script>"; 
         }
         else
         {
-            //echo $_SESSION['login'];
-            echo "<script>alert('log in failed');window.location.href='index.php';</script>"; 
+           echo $_SESSION['login'];
+           // echo "<script>alert('log in failed');window.location.href='index.php';</script>"; 
         }
         
     }
