@@ -70,7 +70,7 @@
         $login=$funobj->check_login($uname, $password);
         if($login)
         {
-                session_start();
+                
                 $_SESSION['sessionvar'] = 1;
                 //$_SESSION['uid'] = $user_data['id'];
                //echo $_SESSION['sessionvar'];
@@ -121,7 +121,7 @@
           }
           else 
           {
-         ?><li><a href="signup_login.php"><span class="glyphicon glyphicon-log-in"></span>Login</a></li> 
+         ?><li><a href="signup_login.php"><span class="glyphicon glyphicon-log-in"></span>Sign Up</a></li> 
          <?php
           }
          ?>

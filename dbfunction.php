@@ -2,7 +2,7 @@
 include "config.php";
 	class User{
 
-		public $db;
+		public $db,$uid;
 
 		public function __construct(){
 			$this->db = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
@@ -54,6 +54,8 @@ include "config.php";
 	            // this login var will use for the session thing
 	          
 	            return true;
+	    		$uid=$user_data['$id'];
+	            //$uid=$_SESSION['1'];
 	        }
 	        else{
 	        	
@@ -64,7 +66,8 @@ include "config.php";
     	
     	/*** starting the session ***/
 	    public function get_session(){
-	        return $_SESSION['uid'] ;
+	        //return $this->uid;
+	        return $this->uid;
 	    }
 
 	    public function user_logout() {
