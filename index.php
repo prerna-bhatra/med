@@ -2,8 +2,8 @@
 <html>
 <head>
     <title>Healthcrew</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
    <script>
@@ -72,6 +72,7 @@
         {
                 
                 $_SESSION['sessionvar'] = 1;
+                //$_SESSION['uid'] = $uname;
                 //$_SESSION['uid'] = $user_data['id'];
                //echo $_SESSION['sessionvar'];
          // echo "<script>alert('Successful loggedin');window.location.href='index.php';</script>"; 
@@ -110,7 +111,6 @@
         <li><a href="#">Page 3</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      
       <?php
         if(isset($_SESSION['sessionvar']))
         {

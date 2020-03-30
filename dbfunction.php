@@ -1,4 +1,5 @@
 <?php
+
 include "config.php";
 	class User{
 
@@ -29,7 +30,7 @@ include "config.php";
 				$sql1="INSERT INTO users(name, email, mob,address, password) VALUES ('".$username."','".$emailid."','".$mob."','".$address."','".$password."')";
 				$result = mysqli_query($this->db,$sql1); //or die(mysqli_connect_errno()."Data cannot inserted");
         		if ($result) {
-        			
+        				
         			return true;
 	        		}
 	        		else
@@ -52,11 +53,17 @@ include "config.php";
 
 	        if ($count_row == 1) {
 	            // this login var will use for the session thing
-	          
+	          $session1="INSERT INTO `session`(`id`) VALUES ('".$user_data['id']."')";
+	          $result1= mysqli_query($this->db,$session1);
+	         // $row = mysqli_fetch_assoc($result);
+	         $GLOBALS['uid']=$user_data['id'];
 	            return true;
-	    		$uid=$user_data['$id'];
+
+	    		//$uid=$user_data['$id'];
 	            //$uid=$_SESSION['1'];
-	        }
+	           // $_SESSION['uid']=$user_data['$id'];
+	            //$uid=$_SESSION['uid'];
+	            }
 	        else{
 	        	
 			    return false;
@@ -66,13 +73,15 @@ include "config.php";
     	
     	/*** starting the session ***/
 	    public function get_session(){
-	        //return $this->uid;
 	        return $this->uid;
+	        
 	    }
 
 	    public function user_logout() {
-	        $_SESSION['login'] = FALSE;
-	        session_destroy();
+	       // $_SESSION['login'] = FALSE;
+	        //session_destroy();
+	      //  $get_session1="SELECT * FROM `session` WHERE 1";
+	        //$session="";
 	    }
 	  public function search()
 	  {
